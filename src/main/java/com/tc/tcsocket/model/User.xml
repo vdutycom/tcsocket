@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--resultType 指定单条记录返回的类型-->
+<mapper namespace="com.tc.tcsocket.dao.IUserDao">
+<!-- 测试插入  -->
+<insert id="addUser" parameterType="Map">
+		INSERT INTO   
+		users(name,password,create_time)
+		value(#{name},#{password}) 
+</insert>
+</mapper>

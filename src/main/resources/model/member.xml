@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--resultType 指定单条记录返回的类型-->
+<mapper namespace="com.tc.tcsocket.dao.IMemberDao">
+<select id="queryMemberByIdAndMobile" parameterType="Map" resultType="com.tc.tcsocket.model.Member">
+select m.sex,m.photo,mpb.product_code,mpb.request_memberid,mpb.apply_status from members m left join member_product_bind  mpb on mpb.member_id = m.id  where m.id = #{id} 
+</select>
+<select id="queryOtherpartyMemberId" resultType="long"  statementType="CALLABLE">
+    {call get_pars_otherpartyid(#{in_member_id,mode=IN,jdbcType=NUMERIC})}
+</select>
+<!--'%${value}' 表示拼接sql串,只能使用value,有可能会引起sql注入的情况-->
+<select id="queryUserByName" parameterType="String" resultType="com.tc.tcsocket.model.Member">
+SELECT * FROM members WHERE name LIKE #{name}
+</select>
+<!--INSERT INTO USER (id,name,address) VALUE (null,"陈潇然","大学同学")-->
+<insert id="addUser" parameterType="map">
+insert into users(name,password) values(#{name},#{password});
+</insert>
+
+
+
+
+</mapper>
