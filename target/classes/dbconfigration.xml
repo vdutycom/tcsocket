@@ -21,11 +21,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 				<property name="password" value="123456" /> -->
 				
 				 <property name="url"
-					value="jdbc:mysql://localhost:3306/vdutycms?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useSSL=true" />
+					value="jdbc:mysql://192.168.0.10:3306/vdutycms?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useSSL=true" />
 				<property name="username" value="root" />
-				<property name="password" value="KangDB20151029*^shili" />
+				<!-- <property name="password" value="KangDB20151029*^shili" /> -->
+				 <property name="password" value="123456" /> 
 				<property name="poolMaximumActiveConnections" value="1000"/>
-                <property name="poolMaximumIdleConnections" value="1000"/>
+                <property name="poolMaximumIdleConnections" value="100"/>
 				
 					
 			</dataSource>		
